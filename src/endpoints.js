@@ -79,7 +79,9 @@ server.post('/media', (req,resp) => {
             media: x
         })
     }catch(err){
-
+        resp.status(404).send({
+            erro:err.message
+        })
     }
 })
 server.get('/dia2/cor', (req,resp) => {
@@ -91,7 +93,23 @@ server.get('/dia2/cor', (req,resp) => {
             primaria: x
         })
     }catch(err){
+        resp.status(404).send({
+            erro:err.message
+        })
+    }
+})
 
+server.post('/dia2/Ingressocinema', (req,resp) =>{
+    try{
+        const{a, b, c, d} = req.body;
+        const x = IngressoCinema(a, b, c, d);
+        resp.send({
+            total:x
+        })
+    }catch(err){
+        resp.status(404).send({
+            erro:err.message
+        })
     }
 })
 export default server;
