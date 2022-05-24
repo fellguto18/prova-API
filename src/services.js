@@ -19,9 +19,12 @@ export function media(n1, n2, n3){
 }
 
 export function tabuada(numero){
-    let x = 0;
-    for(let i = 1; i <= 10; i++)
-        x = numero * i;
+    let a = 0;
+    for(let i = 0; i <= 10;i++)
+    {
+        a = numero * i;
+    }
+    return a;
 }       
 
 export function cor(a){
@@ -46,33 +49,21 @@ export function IngressoCinema(qtdM, qtdI, DS, NC){
 }
 
 export function Caracter(palavra, letra){
-    let a = 0;
-    for(item of palavra)
+    let i = 0
+    for(let item of palavra)
     {
         if(item == letra)
-            a++;
+            i++
     }
-    return a;
+    return i;
 }
 
-export function Caracters(palavra, letra){
-    let a = 0;
-    for(let i = 0; i <= palavra.length; i++)
-    {
-        if(letra == "a")
-        {
-            a++
-        }
-    }
-    return a;
-}
 
 export function MaiorNumero(arr){
     let maior = 0;
-    for(item of arr)
+    for(let item of arr)
     {
-        let i = 0;
-        while(i < maior)
+        if(item > maior)
             maior = item
     }
     return maior;

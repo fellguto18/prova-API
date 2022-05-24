@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import {dobro, somar, febre, media, cor, IngressoCinema, Caracter, Caracters, tabuada, MaiorNumero} from './services.js'
+import {dobro, somar, febre, media, cor, IngressoCinema, Caracter, tabuada, MaiorNumero} from './services.js'
 
 
 const server = Router();
@@ -146,7 +146,7 @@ server.get('/dia2/FreqCar', (req, resp) =>{
 server.get('/dia2/FreqCars', (req, resp) =>{
     try{
         const {a, b} = req.query;
-        const x = Caracters(a, b);
+        const x = Caracter(a, b);
 
         resp.send({
             freq:x
@@ -160,7 +160,7 @@ server.get('/dia2/FreqCars', (req, resp) =>{
 
 server.post('/dia2/maior', (req, resp) =>{
     try{
-        const arr = req.body.arr;
+        let arr = req.body.arr;
         const x = MaiorNumero(arr);
 
         resp.send({
