@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import {dobro, somar, febre, media, cor, IngressoCinema, Caracter} from './services.js'
+import {dobro, somar, febre, media, cor, IngressoCinema, Caracter, tabuada} from './services.js'
 
 
 const server = Router();
@@ -17,6 +17,21 @@ server.get('/dobro/:numero', (req, resp) => {
             erro: err.message
         })
         
+    }
+})
+
+server.get('/tabuada', (req,resp) => {
+    try{
+        const a = req.query.a;
+        const x = tabuada(a);
+    
+        resp.send({
+            tabuada:x
+        })
+    }catch(err){
+        resp.status(404).send({
+            erro:err.message
+        })
     }
 })
 
@@ -101,8 +116,8 @@ server.get('/dia2/cor', (req,resp) => {
 
 server.post('/dia2/Ingressocinema', (req,resp) =>{
     try{
-        const{a, b, c, d} = req.body;
-        const x = IngressoCinema(a, b, c, d);
+        const{qtdM, qtdI, DS, NC} = req.body;
+        const x = IngressoCinema(qtdM, qtdI, DS, NC);
         resp.send({
             total:x
         })
