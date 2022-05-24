@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import {dobro, somar, febre, media, cor, IngressoCinema} from './services.js'
+import {dobro, somar, febre, media, cor, IngressoCinema, Caracter} from './services.js'
 
 
 const server = Router();
@@ -109,6 +109,21 @@ server.post('/dia2/Ingressocinema', (req,resp) =>{
     }catch(err){
         resp.status(404).send({
             erro:err.message
+        })
+    }
+})
+
+server.get('/dia2/FreqCar', (req, resp) =>{
+    try{
+        const {a, b} = req.query;
+        const x = Caracter(a, b);
+
+        resp.send({
+            freq:x
+        })
+    }catch(err){
+        resp.status(404).send({
+            erro: err.message
         })
     }
 })
