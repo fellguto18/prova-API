@@ -46,19 +46,34 @@ export function IngressoCinema(qtdM, qtdI, DS, NC){
 }
 
 export function Caracter(palavra, letra){
-    forEach(letra in palavra)
+    let a = 0;
+    for(item of palavra)
     {
-        for(i = 0; i < palavra; i++)
-            i = letra;
+        if(item == letra)
+            a++;
     }
+    return a;
 }
 
-export function MaiorNumero(){
-    let maior = 0;
-    forEach( item in arr)
+export function Caracters(palavra, letra){
+    let a = 0;
+    for(let i = 0; i <= palavra.length; i++)
     {
-        for( i = 0; i < maior; i++)
-            maior = item;
+        if(letra == "a")
+        {
+            a++
+        }
+    }
+    return a;
+}
+
+export function MaiorNumero(arr){
+    let maior = 0;
+    for(item of arr)
+    {
+        let i = 0;
+        while(i < maior)
+            maior = item
     }
     return maior;
 }
